@@ -71,12 +71,53 @@ h1 em,h2 em,.synthetic-panel h3 em{font-family:var(--script);font-style:normal;t
 @keyframes lbl{0%{opacity:0}4%{opacity:1}30%{opacity:1}34%{opacity:0}100%{opacity:0}}
 @keyframes ping{0%{opacity:.9;transform:scale(1)}60%{opacity:0;transform:scale(4)}100%{opacity:0;transform:scale(4)}}
 @media(max-width:480px){.syn .sat text{font-size:15px}}
+
+/* sun sits behind the headline */
+.sun{left:3%;right:auto;top:50%;bottom:auto;transform:translateY(-52%);width:min(640px,66vw);opacity:.55;background:linear-gradient(180deg,#ffc53d 0%,#ff8a4d 40%,#ff3d8b 78%,#b02a7a 100%)}
+.hero-copy h1{position:relative;z-index:2}
+.palm{opacity:1;filter:drop-shadow(0 0 6px #ff4fa3aa)}.palm-l{left:-8%;height:min(560px,68vh)}.palm-r{right:1%;height:min(500px,60vh)}
+@media(max-width:800px){.sun{left:50%;right:auto;top:34%;transform:translate(-50%,-50%);width:78vw}.palm-l{height:34vh;left:-6%}.palm-r{height:28vh;right:-6%}.site-header nav{display:none}}
+/* header + toggle */
+.hdr-right{display:flex;align-items:center;gap:16px}
+.bankbtn{font:12px var(--mono);letter-spacing:.1em;color:var(--teal);background:transparent;border:1px solid #2de2e688;padding:7px 12px;border-radius:6px;cursor:pointer}
+.bankbtn:hover{background:#2de2e61a}.bankbtn[aria-pressed="true"]{background:#00dbcc22;color:#eafcfd}
+@media(max-width:800px){.hdr-right{gap:8px}.bankbtn{font-size:11px;padding:6px 9px}}
+/* BANK VIEW: calm house version */
+html.bank{--bg:#06141a;--panel:#0d2a31;--panel2:#103239;--ink:#d7e7ea;--muted:#9bb2b8;--cyan:#00dbcc;--sun:#ffb81a;--teal:#00dbcc;--pink:#00dbcc;--orange:#ffb81a;--line:#1c4850;--head:'Ubuntu','Noto Sans',system-ui,sans-serif}
+html.bank body{background:#06141a}
+html.bank .sun,html.bank .grid-floor,html.bank .palm{display:none}
+html.bank .hero{background:linear-gradient(180deg,#0a252b 0%,#06141a 70%,#040c0f 100%)}
+html.bank .hero:after{background:none}
+html.bank h1,html.bank h2,html.bank h3,html.bank .wordmark,.html.bank .footer-brand{text-transform:none;letter-spacing:-.01em;font-weight:700}
+html.bank h1{background:none;filter:none;color:#e8f4f6;-webkit-text-fill-color:#e8f4f6;font-size:clamp(48px,7vw,104px);line-height:1}
+html.bank .wordmark,html.bank .footer-brand{text-transform:uppercase;letter-spacing:.13em;font-size:14px}
+html.bank h3{font-weight:500}
+html.bank .intro h2,html.bank .section-heading h2,html.bank .image-section h2,html.bank .closing h2,html.bank .mars-copy h2{text-shadow:none;letter-spacing:-.025em;font-size:clamp(36px,5.2vw,68px);line-height:1.1}
+html.bank h1 em,html.bank h2 em,html.bank .synthetic-panel h3 em{font-family:var(--serif);font-style:italic;text-shadow:none;transform:none;display:inline;color:var(--sun);-webkit-text-fill-color:var(--sun);line-height:inherit}
+html.bank .stat-strip strong{text-transform:none;font-weight:700;font-size:24px;letter-spacing:0}
+html.bank .eyebrow,html.bank .live-dot{text-shadow:none;box-shadow:none}
+html.bank .button.primary{background:var(--cyan);color:#04141a;border-radius:6px;box-shadow:none;padding:13px 18px}
+html.bank .earth{background:radial-gradient(circle at 35% 28%,#3c8492 0%,#15536a 24%,#0b2c46 60%,#061524 74%);box-shadow:inset -35px -25px 65px #020c19,0 0 60px #00dbcc1a}
+html.bank .earth:before,html.bank .earth:after{background:#7bb5a2;opacity:.45}
+html.bank .earth-grid{background:repeating-linear-gradient(0deg,transparent 0 42px,#7bdce322 43px 44px),repeating-linear-gradient(90deg,transparent 0 42px,#7bdce322 43px 44px)}
+html.bank .orbit{border-color:#00dbcc44}
+html.bank .how-section,html.bank .timeline-section{background:#08202a}
+html.bank .synthetic-panel,html.bank .insar-callout,html.bank .featured{background:#0d2a31}
+html.bank .step,html.bank .surface,html.bank .synthetic-panel,html.bank .featured,html.bank .insar-callout{border-color:#1c4850;box-shadow:none}
+html.bank .motion-demo{background:#08202a;border-color:#1c4850}
+html.bank .step-icon{border-color:#00dbcc66}
+html.bank .mars-section{background:#08202a}
+html.bank .mars-visual{background:radial-gradient(ellipse at 50% 80%,#6b382c,#17283a 65%)}
+html.bank .site-footer{background:#04090b;border-top:1px solid #1c4850}
+html.bank .timeline-track{background:linear-gradient(var(--cyan),var(--sun),transparent)}
+html.bank .hero-bottom{text-shadow:none}
+html.bank .site-header{border-bottom-color:#ffffff14}
 </style>
 </head>
 <body>
-<header class="site-header"><a class="wordmark" href="#top">RADAR<span>VISION</span></a><nav><a href="#how">How it works</a><a href="#history">Timeline</a><a href="#mars">Mars</a></nav><a class="nav-cta" href="#sources">EXPLORE THE SCIENCE ↗</a></header>
+<header class="site-header"><a class="wordmark" href="#top">RADAR<span>VISION</span></a><nav><a href="#how">How it works</a><a href="#history">Timeline</a><a href="#mars">Mars</a></nav><div class="hdr-right"><button id="bankbtn" class="bankbtn" type="button" aria-pressed="false" title="Bank view is the calm, no-neon version.">Bank view: off</button><a class="nav-cta" href="#sources">EXPLORE THE SCIENCE ↗</a></div></header>
 <main id="top">
-<section class="hero"><div class="sun" aria-hidden="true"></div><div class="grid-floor" aria-hidden="true"></div><div class="hero-copy reveal"><p class="eyebrow"><span class="live-dot"></span> EARTH OBSERVATION / PLANETARY SCIENCE</p><h1>Seeing the<br><em>invisible.</em></h1><p class="hero-lede">A satellite doesn't need a camera to make an image. Sometimes, it just needs to listen to the echoes.</p><div class="hero-actions"><a class="button primary" href="#how">ENTER THE SIGNAL ↓</a><span class="micro-note">A field guide to Synthetic Aperture Radar</span></div></div>
+<section class="hero"><div class="sun" aria-hidden="true"></div><div class="grid-floor" aria-hidden="true"></div><svg class="palm palm-l" viewBox="0 0 220 440" aria-hidden="true"><g fill="#0b0214"><path d="M92 440C98 340 90 250 112 168L122 170C104 254 114 340 118 440Z"/><g transform="translate(116 168)"><path id="fr1" d="M0 0C28 -44 88 -52 134 -8C92 -28 44 -22 0 10Z"/><use href="#fr1" transform="rotate(38)"/><use href="#fr1" transform="rotate(78)"/><use href="#fr1" transform="rotate(-34)"/><use href="#fr1" transform="scale(-1 1)"/><use href="#fr1" transform="scale(-1 1) rotate(38)"/><use href="#fr1" transform="scale(-1 1) rotate(78)"/><use href="#fr1" transform="scale(-1 1) rotate(-34)"/></g></g></svg><svg class="palm palm-r" viewBox="0 0 220 440" aria-hidden="true"><g fill="#0b0214"><path d="M92 440C98 340 90 250 112 168L122 170C104 254 114 340 118 440Z"/><g transform="translate(116 168)"><path id="fr2" d="M0 0C28 -44 88 -52 134 -8C92 -28 44 -22 0 10Z"/><use href="#fr2" transform="rotate(38)"/><use href="#fr2" transform="rotate(78)"/><use href="#fr2" transform="rotate(-34)"/><use href="#fr2" transform="scale(-1 1)"/><use href="#fr2" transform="scale(-1 1) rotate(38)"/><use href="#fr2" transform="scale(-1 1) rotate(78)"/><use href="#fr2" transform="scale(-1 1) rotate(-34)"/></g></g></svg><div class="hero-copy reveal"><p class="eyebrow"><span class="live-dot"></span> EARTH OBSERVATION / PLANETARY SCIENCE</p><h1>Seeing the<br><em>invisible.</em></h1><p class="hero-lede">A satellite doesn't need a camera to make an image. Sometimes, it just needs to listen to the echoes.</p><div class="hero-actions"><a class="button primary" href="#how">ENTER THE SIGNAL ↓</a><span class="micro-note">A field guide to Synthetic Aperture Radar</span></div></div>
 <div class="radar-stage" aria-label="Animated illustration of a satellite sending radar pulses to Earth"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="earth"><div class="earth-grid"></div></div><div class="satellite"><div class="sat-body"></div><div class="solar left"></div><div class="solar right"></div><div class="antenna"></div></div><div class="beam beam-a"></div><div class="beam beam-b"></div><div class="beam beam-c"></div><div class="echo echo-a"></div><div class="echo echo-b"></div><span class="signal-label transmit">TRANSMIT</span><span class="signal-label return">BACKSCATTER</span><div class="radar-caption">ACTIVE REMOTE SENSING</div></div><div class="hero-bottom"><span>01 — THE SIGNAL</span><span>NO SUNLIGHT REQUIRED</span><span>SCROLL TO EXPLORE ↓</span></div></section>
 <section class="intro section-wrap reveal"><p class="eyebrow">FIRST, A DIFFERENT WAY OF SEEING</p><h2>Forget the photograph.<br><em>Think of an echo.</em></h2><p class="intro-text">Ordinary satellite cameras collect sunlight reflected from the ground. Synthetic Aperture Radar (SAR) makes its own signal: it sends microwave pulses towards Earth, measures what comes back, and uses those echoes to construct an image.</p><div class="stat-strip"><div><strong>24/7</strong><span>Day or night</span></div><div><strong>Through clouds</strong><span>Microwaves penetrate most cloud cover</span></div><div><strong>Change</strong><span>Detect movement over time</span></div></div></section>
 <section id="how" class="how-section"><div class="section-wrap"><div class="section-heading reveal"><p class="eyebrow">02 — UNDER THE HOOD</p><h2>Four steps.<br><em>One remarkable image.</em></h2></div><div class="steps"><article class="step reveal"><span class="step-num">01</span><div class="step-icon pulse-icon"></div><h3>Transmit</h3><p>The satellite sends microwave pulses towards the surface. It supplies its own illumination.</p></article><article class="step reveal"><span class="step-num">02</span><div class="step-icon"></div><h3>Reflect</h3><p>Land, water, buildings and vegetation scatter the signal in different directions.</p></article><article class="step reveal"><span class="step-num">03</span><div class="step-icon receive-icon"></div><h3>Receive</h3><p>The instrument records the returning energy: its strength, timing and phase.</p></article><article class="step reveal"><span class="step-num">04</span><div class="step-icon image-icon"></div><h3>Reconstruct</h3><p>Processing combines many observations into a sharply focused radar image.</p></article></div><div class="synthetic-panel reveal"><div><p class="eyebrow">WHY “SYNTHETIC”?</p><h3>The satellite builds a bigger antenna<br>by <em>moving.</em></h3><p>As it travels along its orbit, SAR observes the same patch of ground from successive positions. Precise processing combines the phase history of those returns, synthesising an antenna much larger than the physical one.</p></div><div class="motion-demo" aria-label="Animated: a satellite sends radar waves to the ground and receives the echo"><svg class="syn" viewBox="0 0 600 260" role="img" aria-label="A satellite sends radar waves down to the ground in three steps: transmit, echo returning, echo received">
@@ -112,5 +153,11 @@ h1 em,h2 em,.synthetic-panel h3 em{font-family:var(--script);font-style:normal;t
 const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 document.addEventListener('visibilitychange',()=>document.body.classList.toggle('page-hidden',document.hidden));
+
+(function(){var root=document.documentElement,K="radar-view",b=document.getElementById("bankbtn");
+function apply(on){root.classList.toggle("bank",on);b.setAttribute("aria-pressed",on?"true":"false");b.textContent=on?"Bank view: on":"Bank view: off";try{localStorage.setItem(K,on?"bank":"neon")}catch(e){}}
+b.addEventListener("click",function(){apply(!root.classList.contains("bank"))});
+var on=false;try{on=localStorage.getItem(K)==="bank"}catch(e){}
+if(/[#?&](view=)?bank/.test(location.href))on=true;if(/[#?&](view=)?neon/.test(location.href))on=false;apply(on);})();
 </script>
 </body></html>
